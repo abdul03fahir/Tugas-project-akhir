@@ -1,0 +1,39 @@
+<div class="form-container">
+  <link rel="stylesheet" href="/css/add.css">
+  <h1>Add {{type}}</h1>
+  <form action="/add" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="type" value="{{type}}">
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea name="description" id="description" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image (optional)</label>
+      <input type="file" name="image" id="image" accept="image/*">
+    </div>
+
+    <!-- Tags Section -->
+    <div class="form-group">
+  <label>Tags / Skills</label>
+  <div class="flex flex-wrap gap-2">
+    {{#each availableTags}}
+      <label class="tag">
+        <input type="checkbox" name="tags" value="{{this}}"> {{this}}
+      </label>
+    {{/each}}
+  </div>
+</div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-save">Save</button>
+      <a href="/" class="btn btn-cancel">Cancel</a>
+    </div>
+  </form>
+</div>

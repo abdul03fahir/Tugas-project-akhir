@@ -1,0 +1,120 @@
+<!-- HERO SECTION -->
+<section class="container hero">
+  <div class="hero-left">
+    <link rel="stylesheet" href="/css/style.css">
+    <img src="/img/profil.jpeg" alt="Profile" class="profile-pic">
+  </div>
+  <div class="hero-right">
+    <h1>Hi, Saya Fahir 👋</h1>
+    <h3>Pelajar Full-Stack Developer</h3>
+    <p>Saya mempelajari beberapa bahasa pemrograman, diantaranya Html,JavaScript,CSS,ExpressJs,Dll.</p>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack" class="container section">
+  <h2>Tech Stack - Tools I Use Everyday</h2>
+  <div class="stack-list">
+    <div class="swiper-slide">
+                        <div class="tech-item">
+                            <div class="tech-icon">
+                                <img src="/img/html.png" alt="HTML"/>
+                            </div>
+                            <span> HTML</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="tech-item">
+                            <div class="tech-icon">
+                                <img src="/img/javascript.png" alt="JavaScript" />
+                            </div>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="tech-item">
+                            <div class="tech-icon">
+                                <img src="/img/css.png" alt="CSS" />
+                            </div>
+                            <span>CSS</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="tech-item">
+                            <div class="tech-icon">
+                                <img src="/img/express js.png" alt="ExpressJs" />
+                            </div>
+                            <span>ExpressJs</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="tech-item">
+                            <div class="tech-icon">
+                                <img src="/img/node js.png" alt="NodeJs" />
+                            </div>
+                            <span>NodeJs</span>
+                        </div>
+                    </div>
+                    </div>
+  </div>
+</section>
+
+<!-- WORK EXPERIENCES -->
+<section id="experience" class="container section">
+  <div class="section-header">
+    <h2>Work Experiences:</h2>
+    <a href="/add?type=work" class="add-btn">+</a>
+  </div>
+  <div class="experience-item">
+    <div class="exp-left">
+      <img src="/img/Dumbways.png" alt="Dumbways" class="exp-logo">
+    </div>
+    <div class="exp-right">
+      <h3>Peserta Full Stack Web Developer</h3>
+      <p>DumbWays Indonesia</p>
+      <ul>
+        <li>Pelajar Di Full Stack Development bootcamp</li>
+        <li>Mempelajari HTML,JavaScript,CSS,ExpressJs</li>
+      </ul>
+      <span class="exp-date">Okt 2025 – Present</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="container section">
+  <div class="section-header">
+    <h2>My Projects:</h2>
+    <a href="/add?type=project" class="add-btn">+</a>
+  </div>
+  <div class="list">
+    {{#if projects.length}}
+      {{#each projects}}
+        <div class="card">
+          {{#if this.image}}
+            <img src="{{this.image}}" class="thumb" alt="{{this.title}}">
+          {{else}}
+            <div class="no-thumb">No Image</div>
+          {{/if}}
+          <div class="card-body">
+            <h3>{{this.title}}</h3>
+            <p>{{this.description}}</p>
+                    {{#if this.tags}}
+            <div class="tags-container">
+              {{#each this.tags}}
+                <span class="tag-item">{{this}}</span>
+              {{/each}}
+            </div>
+          {{/if}}
+            <!-- Delete Button -->
+            <form action="/delete/{{this.type}}/{{this.id}}" method="POST" style="margin-top: 8px;">
+              <button type="submit" class="btn btn-delete">Delete</button>
+            </form>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <p>No project yet.</p>
+    {{/if}}
+  </div>
+</section>
